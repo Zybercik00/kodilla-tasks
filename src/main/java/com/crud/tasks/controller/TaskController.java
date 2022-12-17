@@ -35,7 +35,3 @@ public class TaskController {
         System.out.println("Otrzymalem body " + taskDto);
     }
 }
-
-// @PathVariable    --> /v1/tasks/1                             GET, POST, PUT, DELETE
-// @RequestParam    --> /v1/tasks?taskId=5                      GET, POST, PUT, DELETE
-// @RequestBody     --> /v1/tasks  + body                       POST, PUT
