@@ -17,10 +17,10 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 
-@Component
+@Component("client")
 @RequiredArgsConstructor
-public class TrelloClient {
-    private static final Logger LOGGER = LoggerFactory.getLogger(TrelloClient.class);
+public class TrelloService {
+    private static final Logger LOGGER = LoggerFactory.getLogger(TrelloService.class);
     private final RestTemplate restTemplate;
     private final TrelloConfig trelloConfig;
 
