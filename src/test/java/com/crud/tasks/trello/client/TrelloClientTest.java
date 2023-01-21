@@ -24,7 +24,7 @@ import static org.mockito.Mockito.when;
 class TrelloClientTest {
 
     @InjectMocks
-    private TrelloService trelloService;
+    private TrelloClient trelloClient;
 
     @Mock
     private RestTemplate restTemplate;
@@ -46,7 +46,7 @@ class TrelloClientTest {
         URI uri = new URI("http://test.com/members/test/boards?key=test&token=test&fields=name,id&lists=all");
         when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(trelloBoards);
         //When
-        List<TrelloBoardDto> fetchedTrelloBoards = trelloService.getTrelloBoards();
+        List<TrelloBoardDto> fetchedTrelloBoards = trelloClient.getTrelloBoards();
         //Then
         assertEquals(1, fetchedTrelloBoards.size());
         assertEquals("test_id", fetchedTrelloBoards.get(0).getId());
@@ -76,7 +76,7 @@ class TrelloClientTest {
 
         when(restTemplate.postForObject(uri, null, CreatedTrelloCardDto.class)).thenReturn(createdTrelloCardDto);
         // When
-        CreatedTrelloCardDto newCard = trelloService.createNewCard(trelloCardDto);
+        CreatedTrelloCardDto newCard = trelloClient.createNewCard(trelloCardDto);
 
         // Then
         assertEquals("1", newCard.getId());
@@ -98,7 +98,7 @@ class TrelloClientTest {
         URI uri = new URI("http://test.com/members/test/boards?key=test&token=test&fields=name,id&lists=all");
         when(restTemplate.getForObject(uri, TrelloBoardDto[].class)).thenReturn(trelloBoards);
         //When
-        List<TrelloBoardDto> fetchedTrelloBoards = trelloService.getTrelloBoards();
+        List<TrelloBoardDto> fetchedTrelloBoards = trelloClient.getTrelloBoards();
         //Then
         assertEquals(new ArrayList<>(), fetchedTrelloBoards.get(0).getLists());
     }

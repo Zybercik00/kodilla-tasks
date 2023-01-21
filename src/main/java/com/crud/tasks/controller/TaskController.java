@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/v1/tasks")
+    @RequestMapping("/v1/tasks")
 @RequiredArgsConstructor
 @CrossOrigin("*")
 public class TaskController {
